@@ -1,0 +1,71 @@
+/**
+* ReHacked Labs Style
+*/
+
+@import './dashboard.scss';
+
+.hide {
+  visibility: hidden;
+}
+
+.snack-bar {
+  position: absolute !important;
+}
+
+.mdl-textfield--floating-label.is-dirty, .mdl-textfield--floating-label.is-focused {
+  .mdl-textfield__label {
+    color: rgb(68, 138, 255);
+  }
+
+  .mdl-textfield__label:after {
+    background-color: rgb(68, 138, 255);
+  }
+}
+
+.mdl-button--raised.mdl-button--colored {
+  background-color: rgb(68, 138, 255);
+}
+
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
+  font-size: 15px;
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+  font-size: 15px;
+}
+
+// Login
+.login-container {
+  background-color: #cccccc;
+}
+
+.login {
+  position: relative;
+  width: 450px;
+  height: 325px;
+  overflow-y: hidden;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.login-paper {
+  width: 850px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
+}
+
+#login_button.mdl-button {
+  margin: 12px 0 0 0;
+}
+
+.login-header {
+  padding: 25px 0 10px 0;
+  color: rgb(68, 138, 255);
+}
+
+.login-snack-bar {
+  position: absolute !important;
+}
