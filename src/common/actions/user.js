@@ -10,10 +10,9 @@ export function requestLogin() {
   };
 }
 
-function receiveLogin(email, response) {
+function receiveLogin(response) {
   return {
     type: RECEIVE_LOGIN,
-    email: email,
     profile: response.data,
     error: response.error
   };
@@ -23,8 +22,8 @@ export function initiateLogin(email, password) {
   return dispatch => {
     dispatch(requestLogin());
     return login(email, password)
-      .then(json => dispatch(receiveLogin(email, {data: json})))
-      .catch(error => dispatch(receiveLogin(email, {error: error})));
+      .then(json => dispatch(receiveLogin({data: json})))
+      .catch(error => dispatch(receiveLogin({error: error})));
   }
 }
 
