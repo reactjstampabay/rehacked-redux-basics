@@ -4,16 +4,10 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const ENV_CONFIG = {
   WEBPACK: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'source-map-loader'
-      }
-    ],
-    devtool: 'source-map'
+    preLoaders: [],
+    devtool: 'eval'
   }
 };
 
@@ -59,8 +53,7 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('app.css'),
-    new OpenBrowserPlugin({url: 'http://localhost:8080'})
+    new ExtractTextPlugin('app.css')
   ],
 
   // fix errors regarding missing modules
@@ -68,10 +61,6 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     fs: 'empty'
-  },
-
-  devServer: {
-    historyApiFallback: true
   },
 
   output: {
