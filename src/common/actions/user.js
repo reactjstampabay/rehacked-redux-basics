@@ -13,7 +13,6 @@ export function requestLogin() {
 function receiveLogin(email, response) {
   return {
     type: RECEIVE_LOGIN,
-    email: email,
     profile: response.data,
     error: response.error
   };
