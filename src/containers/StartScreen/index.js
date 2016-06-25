@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import Login from '../Login';
-import * as UserService from '../../common/services/user';
+import React, {Component, PropTypes} from 'react';
+import { connect } from 'react-redux'; 
+import Login from '../../components/Login';
+import {requestLogin, initiateLogin} from '../../common/actions/user';
 import {hashHistory} from 'react-router';
 
-export default class StartScreen extends Component {
+class StartScreen extends Component {
   constructor(props) {
       super(props);
-
       this.state = {
         status: 'initial',
         email: '',
@@ -23,6 +23,13 @@ export default class StartScreen extends Component {
 
   componentDidUpdate() {
     componentHandler.upgradeDom();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user.status === 'authorized') {
+      localStorage['USER_PROFILE'] = JSON.stringify(nextProps.user);
+      hashHistory.push('/dashboard');
+    }
   }
 
   _handleFieldChange(field, event) {
@@ -46,29 +53,8 @@ export default class StartScreen extends Component {
       newState.status = 'login_error';
       this.setState(newState);
     } else {
-      this.setState({
-        status: 'logging_in'
-      });
-
-      var self = this;
-      UserService
-        .login(this.state.email, this.state.password)
-        .then(profile => {
-          localStorage['USER_PROFILE'] = JSON.stringify(profile);
-          console.log(profile);
-
-          var newState = Object.assign({}, this.state);
-          newState.status = 'logged_in';
-          self.setState(newState);
-
-          hashHistory.push('/dashboard');
-        })
-        .catch(error => {
-          var newState = Object.assign({}, this.state);
-          newState.status = 'login_error';
-          self._showSnackBar(error.message);
-          self.setState(newState);
-        });
+      this.props.dispatch(requestLogin());
+      this.props.dispatch(initiateLogin(this.state.email, this.state.password));
     }
   }
 
@@ -87,7 +73,20 @@ export default class StartScreen extends Component {
         password={this.state.password}
         handleFieldChange={this._handleFieldChange}
         handleLogin={this._handleLogin}
-        loading={this.state.status === 'logging_in'} />
+        loading={this.props.user.status === 'authenticating'} />
     );
   }
 }
+
+StartScreen.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
+
+function mapStateToProps(state) {
+  const { user } = state;
+  return {
+    user
+  };
+}
+
+export default connect(mapStateToProps)(StartScreen);

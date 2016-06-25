@@ -1,4 +1,4 @@
-import login from '../services/user';
+import * as UserService from '../services/user';
 
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
@@ -10,7 +10,7 @@ export function requestLogin() {
   };
 }
 
-function receiveLogin(response) {
+export function receiveLogin(response) {
   return {
     type: RECEIVE_LOGIN,
     profile: response.data,
@@ -21,13 +21,14 @@ function receiveLogin(response) {
 export function initiateLogin(email, password) {
   return dispatch => {
     dispatch(requestLogin());
-    return login(email, password)
+    return UserService.login(email, password)
       .then(json => dispatch(receiveLogin({data: json})))
       .catch(error => dispatch(receiveLogin({error: error})));
   }
 }
 
 export function logout() {
+  delete localStorage['USER_PROFILE'];
   return {
     type: LOGOUT
   };

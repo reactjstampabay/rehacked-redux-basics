@@ -1,9 +1,11 @@
 'use strict';
 
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
 import {hashHistory} from 'react-router';
+import {logout} from '../../common/actions/user';
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
   constructor(props) {
     super(props);
 
@@ -17,9 +19,14 @@ export default class Dashboard extends Component {
     componentHandler.upgradeDom();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user.status !== 'authorized') {
+      hashHistory.replace('/');
+    }
+  }
+
   _logout() {
-    delete localStorage['USER_PROFILE'];
-    hashHistory.replace('/');
+    this.props.dispatch(logout());
   }
 
   render() {
@@ -95,3 +102,16 @@ export default class Dashboard extends Component {
     );
   }
 }
+
+Dashboard.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
+
+function mapStateToProps(state) {
+  const { user } = state;
+  return {
+    user
+  };
+}
+
+export default connect(mapStateToProps)(Dashboard);
