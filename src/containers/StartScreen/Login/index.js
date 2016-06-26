@@ -1,7 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
-import Loading from '../Loading';
+import Loading from './Loading';
 
 export default class Login extends Component {
   render() {
