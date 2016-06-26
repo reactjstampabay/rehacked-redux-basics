@@ -5,6 +5,7 @@
   "main": "./src/app.js",
   "scripts": {
     "build": "webpack --config webpack.production.config.js",
+    "dev": "webpack-dev-server --config webpack.config.js --content-base build/ --inline --hot",
     "test": "echo \"Error: no tests specified\" && exit 0"
   },
   "author": "Eric Nograles",
