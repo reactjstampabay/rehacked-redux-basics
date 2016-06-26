@@ -60,7 +60,10 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('app.css'),
-    new OpenBrowserPlugin({url: 'http://localhost:8080'})
+    new OpenBrowserPlugin({url: 'http://localhost:8080'}),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('dev')
+    })
   ],
 
   // fix errors regarding missing modules
