@@ -9,10 +9,11 @@ By the end of this lab, you will have:
 
 * Expanded upon the original project's `package.json` with `dev` and `build` scripts
 * Created a `webpack.production.config.js` for use in deployment scenarios
-* Installed Redux, Redux Thunk, Redux Logger
+* Installed [Redux](), [redux-thunk](https://github.com/gaearon/redux-thunk), [redux-logger](https://github.com/gaearon/redux-logger)
 * Created Actions, Reducers, and a Store for use with the application
 * Decomposed the original web app into Containers and Components
-* Connected the original web app's routines to the Redux app
+* Connected the original web app's routines to Redux
+* Installed Redux DevTools to enhance local development experience
 
 # [PreHacked](#prehacked)
 
@@ -30,12 +31,13 @@ In the interest of time and also better documentation, we have broken up this la
 
 Please follow the branches in the order listed below
 
-1. [Start Here](https://github.com/reactjstampabay/rehacked-redux-basics/tree/initial)
-1. [Install Redux + Supporting Tools and Create Actions](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-1)
-1. [Create a User Reducer and Root Reducer](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-2)
-1. [Connect Root Reducer to React and Create Containers](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-3)
-1. [Decompose Components from Dashboard](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-4)
-1. [Enhanced Development with Redux Dev Tools](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-5)
+[Start Here](https://github.com/reactjstampabay/rehacked-redux-basics/tree/initial)
+
+1. [Step 1 Solution Set: Install Redux + Supporting Tools and Create Actions](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-1)
+1. [Step 2 Solution Set: Create a User Reducer and Root Reducer](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-2)
+1. [Step 3 Solution Set: Connect Root Reducer to React and Create Containers](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-3)
+1. [Step 4 Solution Set: Decompose Components from Dashboard](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-4)
+1. [Step 5 Solution Set: Enhanced Development with Redux DevTools](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-5)
 
 # Compiled Application
 
