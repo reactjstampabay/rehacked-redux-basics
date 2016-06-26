@@ -35,7 +35,13 @@
 1. Execute `npm3 install redux redux-thunk redux-logger --save`
 1. Ensure your `package.json` has these entries saved to its dependencies
 
-## Create an actions handler for the user
+## Think of the app in terms of Actions
+
+### Overview
+
+* **Actions** are the most basic construct in Redux (and also Flux).  They describe the different behaviors of your application and corresponding data related to that behavior.
+
+### Create our first Action handler
 
 1. Create an `/actions` subfolder under `/common`
 1. Create a `user.js` file under the newly established `/actions` subfolder
