@@ -3,13 +3,13 @@
 # ReHacked (July 27, 2016): Redux Basics
 ### By [ReactJS Tampa Bay](http://www.meetup.com/ReactJS-Tampa-Bay/)
 
-# [When We Last Left Our Intrepid Adventurers...](#overview)
+# When We Last Left Off...
 
 * We created a rudimentary React SPA setup from the last [ReHacked Lab](https://github.com/reactjstampabay/rehacked-spa-basics-solution-set)
 
 # Goals
 
-1. Install[Redux](), [redux-thunk](https://github.com/gaearon/redux-thunk), [redux-logger](https://github.com/gaearon/redux-logger)
+1. Install [Redux](https://github.com/gaearon/redux), [redux-thunk](https://github.com/gaearon/redux-thunk), [redux-logger](https://github.com/gaearon/redux-logger)
 1. Start to think about our Redux application in terms of Actions
 1. Implement some Action handlers
 
@@ -22,26 +22,39 @@
 1. Execute `git checkout initial`
 1. Execute `npm3 install`
 
-## Install Redux, redux-thunk, and redux-logger
+## Goal 1: Install Redux, redux-thunk, and redux-logger
 
-### Overview
+### Explanation
 
 * **Redux** is the state management library we will use for our React SPA
 * **redux-thunk** allows us to manage actions in an asychronous fashion. The most common use case is if we first need to call out to a Web API before dispatching an action.
 * **redux-logger** logs state changes to the console for development purposes
 
-### Run npm install for Redux, redux-thunk, and redux-logger
+### Instructions
 
 1. Execute `npm3 install redux redux-thunk redux-logger --save`
 1. Ensure your `package.json` has these entries saved to its dependencies
 
-## Think of the app in terms of Actions
+## Goal 2: Start to think about our Redux application in terms of Actions
 
-### Overview
+### Explanation
 
 * **Actions** are the most basic construct in Redux (and also Flux).  They describe the different behaviors of your application and corresponding data related to that behavior.
 
-### Create our first Action handler
+### Instructions
+
+1. In terms of our sample app, we can consider a few simple Actions
+  1. Request a Login: Initiates our login process and shows our "indeterminate" progress bar
+  1. Receive a Login: Once we receive a response from the API, we need to receive it so that our application can react to it properly
+  1. Logout: Removes our auth token and profile information from `localStorage` and redirects us back to the `/` route
+
+## Goal 3: Implement some Action handlers
+
+### Explanation
+
+* Now that we've considered what **Actions** this application does (request a login, receive a login, logout), let's implement it
+
+### Instructions
 
 1. Create an `/actions` subfolder under `/common`
 1. Create a `user.js` file under the newly established `/actions` subfolder
