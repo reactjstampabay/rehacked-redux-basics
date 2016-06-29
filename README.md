@@ -3,7 +3,7 @@
 # ReHacked (July 27, 2016): Redux Basics - Initial
 ### By [ReactJS Tampa Bay](http://www.meetup.com/ReactJS-Tampa-Bay/)
 
-# Let's Begin!
+# When We Last Left Off...
 
 * We created a rudimentary React SPA setup from the last [ReHacked Lab](https://github.com/reactjstampabay/rehacked-spa-basics-solution-set)
 
