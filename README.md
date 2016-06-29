@@ -15,3 +15,5 @@ Each `step-[x]` branch on this repository is a completed solution set for each S
 1. In a shell, execute `git clone https://github.com/[your GH username]/rehacked-redux-basics.git`
 1. Execute `git checkout initial`
 1. Execute `npm3 install`
+
+[Continue to Step 1](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-1)
