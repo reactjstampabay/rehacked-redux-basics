@@ -95,4 +95,4 @@ In this section, we have accomplished the following:
 * Implemented some User **Actions**
 
 
-[Continue to Step 2](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-2)
+[Back to Initial](https://github.com/reactjstampabay/rehacked-redux-basics/tree/initial) || [Continue to Step 2](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-2)
