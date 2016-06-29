@@ -117,4 +117,4 @@ In this section, we have accomplished the following:
 * Implemented a `rootReducer` that can, in the future, assemble multiple **Reducers** into one object
 
 
-[Back to the Start](https://github.com/reactjstampabay/rehacked-redux-basics/tree/initial) || [Continue to Step 2 -->](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-2)
+[Back to the Start](https://github.com/reactjstampabay/rehacked-redux-basics/tree/initial) || [Continue to Step 2](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-2)
