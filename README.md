@@ -2,6 +2,7 @@
 
 # ReHacked (July 27, 2016): Redux Basics
 ### By [ReactJS Tampa Bay](http://www.meetup.com/ReactJS-Tampa-Bay/)
+### Step 1
 
 # When We Last Left Off...
 
