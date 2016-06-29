@@ -1,6 +1,6 @@
 ![ReactJS Tampa Bay Logo](https://avatars2.githubusercontent.com/u/18738421?v=3&s=200)
 
-# ReHacked (July 27, 2016): Redux Basics
+# ReHacked (July 27, 2016): Redux Basics - Initial
 ### By [ReactJS Tampa Bay](http://www.meetup.com/ReactJS-Tampa-Bay/)
 
 # Let's Begin!
@@ -56,8 +56,8 @@
 
 ### Instructions
 
-1. Create an `/actions` subfolder under `/common`
-1. Create a `user.js` file under the newly established `/actions` subfolder
+1. Create `/src/common/actions` folder
+1. Create a `user.js` file under the newly established `/src/common/actions` subfolder
 1. Copy-pasta time!
 
 ```javascript
@@ -98,3 +98,12 @@ export function logout() {
 ```
 
 # Summary
+
+In this section, we have accomplished the following:
+
+* Installed Redux and some supporting libraries
+* Considered what **Actions** a user might take on our Application
+* Implemented some User **Actions**
+
+
+[Continue to Step 1](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-1)
