@@ -3,10 +3,6 @@
 # ReHacked (July 27, 2016): Redux Basics [Step 1]
 ### By [ReactJS Tampa Bay](http://www.meetup.com/ReactJS-Tampa-Bay/)
 
-# When We Last Left Off...
-
-* We created a rudimentary React SPA setup from the last [ReHacked Lab](https://github.com/reactjstampabay/rehacked-spa-basics-solution-set)
-
 # Goals
 
 1. Install [Redux](https://github.com/gaearon/redux), [redux-thunk](https://github.com/gaearon/redux-thunk), [redux-logger](https://github.com/gaearon/redux-logger)
