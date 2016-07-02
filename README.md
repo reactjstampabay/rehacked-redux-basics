@@ -3,9 +3,9 @@
 # ReHacked (July 27, 2016): Redux Basics - Step 2
 ### By [ReactJS Tampa Bay](http://www.meetup.com/ReactJS-Tampa-Bay/)
 
-# When We Last Left Off...
+# [When We Last Left Off...](https://github.com/reactjstampabay/rehacked-redux-basics/compare/initial...step-1)
 
-* [We created some Action handlers for our React/Redux app](https://github.com/reactjstampabay/rehacked-redux-basics/compare/initial...step-1)
+* We created some Action handlers for our React/Redux app
 
 # Goals
 
