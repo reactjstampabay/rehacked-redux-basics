@@ -3,7 +3,7 @@
 # ReHacked (July 27, 2016): Redux Basics - Step 3
 ### By [ReactJS Tampa Bay](http://www.meetup.com/ReactJS-Tampa-Bay/)
 
-# [When We Last Left Off]...(https://github.com/reactjstampabay/rehacked-redux-basics/compare/step-1...step-2)
+# [When We Last Left Off...](https://github.com/reactjstampabay/rehacked-redux-basics/compare/step-1...step-2)
 
 * We considered the shape of the overall **State** of our Redux application
 * We implemented a user **Reducer** to represent the state of the user object
