@@ -71,6 +71,7 @@ function receiveLogin(response) {
 }
 
 export function initiateLogin(email, password) {
+  // redux-thunk at work here!
   return dispatch => {
     dispatch(requestLogin());
     return login(email, password)
