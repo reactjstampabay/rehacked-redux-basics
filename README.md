@@ -15,6 +15,8 @@ By the end of this lab, you will have:
 * Connected the original web app's routines to Redux
 * Installed Redux DevTools to enhance local development experience
 
+This `master` branch represents a completed solution set for the lab.  We have separated the lab into logical "breakpoints" by use of branches.  Please see below how to start.
+
 # [PreHacked](#prehacked)
 
 ## Suggested Tools
