@@ -112,5 +112,12 @@ export let configureStore = function(initialState) {
 
 # Summary
 
+In this section, we have accomplished the following:
+
+* Created a **Store** for our Redux app that React can use
+* Implemented the concept of **Components** and **Containers** in our app
+* Refactored our `app.js` to be simply concerned with scaffolding the app
+* Created an App **Container** that contains the `react-router` config and supporting functions for auth
+* Refactored our `StartScreen` and `Dashboard` to be **Containers** and wired them into Redux
 
 [Back to the Step 2](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-2) || [Continue to Step 4](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-4)
