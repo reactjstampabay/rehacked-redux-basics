@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, {Component} from 'react';
+import {render} from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 
 import {receiveLogin} from '../../common/actions/user';
@@ -11,10 +11,6 @@ export default class App extends Component {
     super(props);
     this.verifyAuth = this.verifyAuth.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
-    this.state = {
-      unsubscribe: this.props.store.subscribe(this.handleChange)
-    }
   }
 
   handleChange() {
@@ -27,6 +23,10 @@ export default class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.unsubscribe = this.props.store.subscribe(this.handleChange.bind(this));
+  }
+
   componentWillMount() {
     if (localStorage['USER_PROFILE']) {
       var user = JSON.parse(localStorage['USER_PROFILE']);
@@ -36,7 +36,7 @@ export default class App extends Component {
   }
 
   componentWillUnmount() {
-    this.state.unsubscribe();
+    this.unsubscribe();
   }
 
   verifyAuth(nextState, replace) {
