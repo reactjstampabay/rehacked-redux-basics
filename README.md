@@ -3,6 +3,10 @@
 # ReHacked (July 27, 2016): Redux Basics
 ### By [ReactJS Tampa Bay](http://www.meetup.com/ReactJS-Tampa-Bay/)
 
+[ ![Codeship Status for reactjstampabay/rehacked-redux-basics](https://codeship.com/projects/8b2a9fa0-1d22-0134-a202-220e900c5efe/status?branch=master)](https://codeship.com/projects/159980)
+
+[https://rehacked-redux-basics.firebaseapp.com](https://rehacked-redux-basics.firebaseapp.com/#/?_k=ob32kr)
+
 Welcome to ReHacked!  The Redux Basics lab builds on top of the the original web application we built in [ReHacked: SPA Basics](https://github.com/reactjstampabay/rehacked-spa-basics-solution-set). 
 
 By the end of this lab, you will have:
@@ -41,8 +45,3 @@ Please follow the branches in the order listed below
 1. [Step 4 Solution Set: Decompose Components from Dashboard](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-4)
 1. [Step 5 Solution Set: Enhanced Development with Redux DevTools](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-5)
 
-# Compiled Application
-
-[ ![Codeship Status for reactjstampabay/rehacked-redux-basics](https://codeship.com/projects/8b2a9fa0-1d22-0134-a202-220e900c5efe/status?branch=master)](https://codeship.com/projects/159980)
-
-[https://rehacked-redux-basics.firebaseapp.com](https://rehacked-redux-basics.firebaseapp.com/#/?_k=ob32kr)
