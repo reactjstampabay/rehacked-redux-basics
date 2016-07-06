@@ -15,6 +15,7 @@
 1. Consider Our UI Architecture in Terms of **Containers** and **Components**
 1. Wire in Redux to `app.js` and Create an App **Container**
 1. Refactor Dashboard and StartScreen to be **Containers** and Use Redux
+1. Enhance our `package.json` with a `dev` script that runs `webpack`
 
 # ReHacked
 
@@ -87,10 +88,29 @@ export let configureStore = function(initialState) {
 
 ### Explanation
 
+* Dashboard and StartScreen really are **Containers** -- stateful components that then propagate any **State** changes down to their children.
+  * **Note**: Other **Containers** can be children of **Containers**, but as general guidance, strive to keep one **Container** be the parent of a chain of stateless **Components**.
+* While you could manually subscribe to a Redux **Store** that gets passed down thanks to the **Provider** HOC in our new `app.js`, Redux offers a convenient `connect` function to propagate state changes to your **Containers**
+* The **Actions** we created earlier can be simply imported into a **Container** the used in conjunction with a `dispatch` function that gets passed down thanks to the **Provider** HOC in our `app.js`.
+
 ### Instructions
 
-# Summary
+1. Create a `/src/containers` folder
+2. Move the `/src/components/Dashboard` and `/src/components/StartScreen` folders to `/src/containers`
+3. Replace the contents of `/src/containers/Dashboard/index.js` with [`/src/containers/Dashboard/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/5b75f17f98dcb5c1074e18bd43314036b562724f/src/containers/Dashboard/index.js)
+4. Replace the contents of `/src/containers/StartScreen/index.js` with [`/src/containers/StartScreen/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/5b75f17f98dcb5c1074e18bd43314036b562724f/src/containers/StartScreen/index.js)
 
+## Goal 5: Enhance our `package.json` with a `dev` script that runs `webpack-dev-server`
+
+### Explanation
+
+* We will simply add a new entry to the `scripts` section of `package.json` called `dev` that launches `webpack-dev-server`
+
+### Instructions
+
+1. Edit `/src/package.json` and add this line to the `scripts` section: `"dev": "webpack-dev-server --config webpack.config.js --content-base build/ --inline --hot",`
+
+# Summary
 
 
 [Back to the Step 2](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-2) || [Continue to Step 4](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-4)
