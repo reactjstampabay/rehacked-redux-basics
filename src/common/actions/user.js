@@ -1,8 +1,9 @@
 import * as UserService from '../services/user';
 
+export const LOGOUT = 'LOGOUT';
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
-export const LOGOUT = 'LOGOUT';
+export const UPDATE_LOGIN_FIELD = 'UPDATE_LOGIN_FIELD';
 
 export function requestLogin() {
   return {
@@ -32,4 +33,23 @@ export function logout() {
   return {
     type: LOGOUT
   };
+}
+
+/**
+ * set the value for a login field (username, password, etc.)
+ */
+export function updateLoginField(key, value) {
+  return dispatch => {
+    let dispatch_payload = {
+      type: UPDATE_LOGIN_FIELD,
+      key: key,
+      value: value
+    };
+
+    dispatch(dispatch_payload);
+  }
+}
+
+export function validateProfile() {
+  
 }
