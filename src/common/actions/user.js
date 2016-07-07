@@ -36,7 +36,7 @@ export function logout() {
 }
 
 /**
- * set the value for a login field (username, password, etc.)
+ * set the value for a login field (email, password, etc.)
  */
 export function updateLoginField(key, value) {
   return dispatch => {
@@ -50,6 +50,6 @@ export function updateLoginField(key, value) {
   }
 }
 
-export function validateProfile() {
-  
-}
+// export function validateProfile() {
+//
+// }
