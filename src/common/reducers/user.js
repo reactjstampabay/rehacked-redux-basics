@@ -1,3 +1,4 @@
+import {LOGIN_STATE} from '../constants/initial_states';
 import {
   LOGOUT,
   REQUEST_LOGIN,
@@ -6,9 +7,16 @@ import {
 } from '../actions/user';
 
 /**
+ * initial reducer state
+ */
+const initial_user_state = {
+  login_profile: LOGIN_STATE
+};
+
+/**
  * export user reducer
  */
-export const user = (state = {}, action) => {
+export const user = (state = initial_user_state, action) => {
   switch (action.type) {
     case LOGOUT:
       return logout(state, action);
