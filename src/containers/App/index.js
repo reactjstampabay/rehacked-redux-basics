@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
 
 import {receiveLogin} from '../../common/actions/user';
 import StartScreen from '../StartScreen';
@@ -14,6 +15,8 @@ export default class App extends Component {
   }
 
   handleChange() {
+    // behavior on store change would happen here
+    
     // Persist the latest copy of the user state to localStorage for later retrieval
     var user = this.props.store.getState().user;
     if (user.status === 'authorized') {
@@ -51,8 +54,13 @@ export default class App extends Component {
   }
 
   render() {
+    /**
+     * Create an enhanced history that syncs navigation events with the store
+     */
+    var enhancedHistory = syncHistoryWithStore(hashHistory, this.props.store);
+
     return (
-      <Router history={hashHistory}>
+      <Router history={enhancedHistory}>
         <Route name="root" path="/" component={StartScreen}/>
         <Route name="dashboard" path="dashboard" component={Dashboard} onEnter={this.verifyAuth}/>
       </Router>
