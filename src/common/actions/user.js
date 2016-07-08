@@ -6,6 +6,7 @@ export const REQUEST_LOGIN = 'REQUEST_LOGIN';
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
 export const SAVE_PROFILE = 'SAVE_PROFILE';
 export const UPDATE_LOGIN_FIELD = 'UPDATE_LOGIN_FIELD';
+export const VALIDATE_PROFILE = 'VALIDATE_PROFILE';
 
 /**
  * invoked when a login is requested
@@ -80,6 +81,21 @@ export function updateLoginField(key, value) {
   }
 }
 
-// export function validateProfile() {
-//
-// }
+/**
+ * validates a user profile
+ */
+export function validateProfile() {
+  return (dispatch, getState) => {
+
+    var user_profile = getState().user.profile || JSON.parse(localStorage['USER_PROFILE'] || '{}');
+
+    if (user_profile && user_profile.status === 'authenticated') {
+      // get next routing state - default to /dashboard if next route is not available
+      var routing_location = getState().routing.locationBeforeTransitions || {};
+      var next_route = routing_location.state && routing_location.state.nextPathname || '/dashboard';
+
+      dispatch(receiveLogin({data: user_profile}));
+      dispatch(push(next_route));
+    }
+  }
+}
