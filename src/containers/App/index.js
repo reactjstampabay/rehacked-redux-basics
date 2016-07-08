@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 
+import {validateProfile} from '../../common/actions/user';
 import StartScreen from '../StartScreen';
 import Dashboard from '../Dashboard';
 
@@ -15,6 +16,10 @@ export default class App extends Component {
 
   componentDidMount() {
     this.unsubscribe = this.props.store.subscribe(this.handleChange.bind(this));
+  }
+
+  componentWillMount() {
+    this.props.store.dispatch(validateProfile());
   }
 
   componentWillUnmount() {
