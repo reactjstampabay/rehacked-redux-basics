@@ -1,120 +1,99 @@
 ![ReactJS Tampa Bay Logo](https://avatars2.githubusercontent.com/u/18738421?v=3&s=200)
 
-# ReHacked (July 27, 2016): Redux Basics
+# ReHacked (July 27, 2016): Redux Basics [Step 1]
 ### By [ReactJS Tampa Bay](http://www.meetup.com/ReactJS-Tampa-Bay/)
-
-# When We Last Left Off...
-
-* We created some Action handlers for our React/Redux app
 
 # Goals
 
-1. Consider what state we need to track for the app
-1. Write our reducers that maintain the state for our app
+1. Install [Redux](https://github.com/gaearon/redux), [redux-thunk](https://github.com/gaearon/redux-thunk), [redux-logger](https://github.com/gaearon/redux-logger)
+1. Start to think about our Redux application in terms of Actions
+1. Implement some Action handlers
 
 # ReHacked
 
-## Goal 1: Consider what state we need to track for the app
+## Goal 1: Install Redux, redux-thunk, and redux-logger
 
 ### Explanation
 
-* Your UI is really just a glorified **State** machine.  What does that exactly mean?
-  * When a user performs an **Action**, it follows with a change of **State** of your application. Example flow below.
-    1. A user types in their email and password and clicks login
-    1. The `requestLogin` action is triggered. It immediately dispatches to the **Store** which will change the app's state with its underlying **Reducers**.
-    1. A **Reducer** watching for the `requestLogin` action handles the action, and changes the state of the app to `authenticating`
-    1. The `initiateLogin` action is triggered, but does not immediately dispatch to the **Reducer** (this is where `redux-thunk` comes into play)
-      1. The app goes out to the Web API with a given `email` and `password` and authenticates
-      1. The app receives a response from the Web API.  It then dispatches a `receiveLogin` action to the **Store** with the response from the Web API.
-    1. A **Reducer** watching for the `receiveLogin` action handles the action and changes its state based on the server Response
+* **Redux** is the state management library we will use for our React SPA
+* **redux-thunk** allows us to manage actions in an asychronous fashion. The most common use case is if we first need to call out to a Web API before dispatching an action.
+* **redux-logger** logs state changes to the console for development purposes
 
 ### Instructions
 
-1. With the flow above considered, we can now determine what the shape of our **Root Reducer** will look like.
-  1. Note: A **Root Reducer** simply assembles many other **Reducers** into one object.
-1. If represented as a simple JavaScript literal, we could consider using the following shape
+1. Execute `npm3 install redux redux-thunk redux-logger --save`
+1. Ensure your `package.json` has these entries saved to its dependencies
 
-```javascript
-var sampleState = {
-  user: {
-    status: 'authenticated',
-    profile: {
-      email: 'some@email.org',
-      userName: 'someUser'
-    },
-    error: null
-  }
-};
-```
-
-## Goal 2: Write our reducers that maintain the state for our app
+## Goal 2: Start to think about our Redux application in terms of Actions
 
 ### Explanation
 
-* Now that we've considered what our **Root Reducer** might look like, let's implement it
+* **Actions** are the most basic construct in Redux (and also Flux).  They describe the different behaviors of your application and corresponding data related to that behavior.
 
 ### Instructions
 
-1. Create a `/src/common/reducers` folder
-2. Create a `user.js` file in the `/src/common/reducers` folder. Copy-pasta time!
+1. In terms of our sample app, we can consider a few simple Actions
+  1. Request a Login: Initiates our login process and shows our "indeterminate" progress bar
+  1. Receive a Login: Once we receive a response from the API, we need to receive it so that our application can react to it properly
+  1. Logout: Removes our auth token and profile information from `localStorage` and redirects us back to the `/` route
+
+## Goal 3: Implement some Action handlers
+
+### Explanation
+
+* Now that we've considered what **Actions** this application does (request a login, receive a login, logout), let's implement it
+
+### Instructions
+
+1. Create `/src/common/actions` folder
+1. Create a `user.js` file under the newly established `/src/common/actions` subfolder
+1. Copy-pasta time!
 
 ```javascript
-// Code for /src/common/reducers/user.js
+import login from '../services/user';
 
-import {
-  REQUEST_LOGIN,
-  RECEIVE_LOGIN,
-  LOGOUT
-} from '../actions/user';
+export const REQUEST_LOGIN = 'REQUEST_LOGIN';
+export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
+export const LOGOUT = 'LOGOUT';
 
-export function user(state = {}, action) {
-  switch (action.type) {
-    case REQUEST_LOGIN:
-      return Object.assign({}, state, {
-        status: 'authenticating'
-      });
-      break;
-    case RECEIVE_LOGIN:
-      return Object.assign({}, state, {
-        profile: action.profile,
-        error: action.error,
-        status: action.error ? 'unauthorized' : 'authorized'
-      });
-      break;
-    case LOGOUT:
-      return Object.assign({}, state,  {
-        status: 'logged_out',
-        profile: null
-      });
-      break;
-    default:
-      return state;
+export function requestLogin() {
+  return {
+    type: REQUEST_LOGIN
+  };
+}
+
+function receiveLogin(response) {
+  return {
+    type: RECEIVE_LOGIN,
+    profile: response.data,
+    error: response.error
+  };
+}
+
+export function initiateLogin(email, password) {
+  // redux-thunk at work here!
+  return dispatch => {
+    dispatch(requestLogin());
+    return login(email, password)
+      .then(json => dispatch(receiveLogin({data: json})))
+      .catch(error => dispatch(receiveLogin({error: error})));
   }
 }
-```
 
-3. Create a `rootReducer.js` in the `/src/common/reducers` folder.  Copy-pasta time!
-
-```javascript
-// Code for /src/common/reducers/rootReducer.js
-
-import { combineReducers } from 'redux';
-import { user } from './user';
-
-const rootReducer = combineReducers({
-  user
-});
-
-export default rootReducer;
+export function logout() {
+  return {
+    type: LOGOUT
+  };
+}
 ```
 
 # Summary
 
 In this section, we have accomplished the following:
 
-* Considered the shape of our **Root Reducer** which will tie into our **Store** later, which in turn is the mechanism to which **Actions** get dispatched
-* Implemented a `user` **Reducer**, which represents a user object in the overall shape of the application's **State**
-* Implemented a `rootReducer` that can, in the future, assemble multiple **Reducers** into one object
+* Installed Redux and some supporting libraries
+* Considered what **Actions** a user might take on our Application
+* Implemented some User **Actions**
 
 
-[Back to the Start](https://github.com/reactjstampabay/rehacked-redux-basics/tree/initial) || [Continue to Step 2 -->](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-2)
+[Back to Initial](https://github.com/reactjstampabay/rehacked-redux-basics/tree/initial) || [Continue to Step 2](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-2)
