@@ -39,10 +39,14 @@ function logout(state, action) {
 }
 
 function receiveLogin(state, action) {
+  var login_profile = Object.assign({}, state.login_profile);
+  login_profile.password = '';
+
   return Object.assign({}, state, {
     profile: action.profile,
     error: action.error,
-    status: action.error ? 'unauthorized' : 'authorized'
+    status: action.error ? 'unauthorized' : 'authorized',
+    login_profile: login_profile
   });
 }
 
