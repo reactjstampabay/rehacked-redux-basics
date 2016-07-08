@@ -1,4 +1,3 @@
-'use strict';
 import React, {Component} from 'react';
 import Avatar from './Avatar';
 import NavigationMenu from './NavigationMenu';
