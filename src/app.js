@@ -7,7 +7,7 @@ import Dashboard from './components/Dashboard';
 import './dependencies';
 
 const verifyAuth = (nextState, replace) => {
-  var profile = JSON.parse(localStorage['USER_PROFILE'] || '{}');
+  let profile = JSON.parse(localStorage['USER_PROFILE'] || '{}');
   if (!profile || profile.status !== 'authenticated') {
     replace({
       pathname: '/',
