@@ -1,4 +1,4 @@
-import {LOGIN_STATE} from '../constants/initial_states';
+import {LOGIN_STATE} from '../constants/initialStates';
 import {
   LOGOUT,
   REQUEST_LOGIN,

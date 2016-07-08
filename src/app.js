@@ -6,7 +6,8 @@ import './dependencies';
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
-import {configureStore} from './common/store/configureStore';
+import configureStore from './common/store/configureStore';
+
 import App from './containers/App';
 import DevTools from './containers/DevTools';
 
