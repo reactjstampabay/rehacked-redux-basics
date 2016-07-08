@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 export default class Avatar extends Component {
   render() {
-    var {user, handleLogout} = this.props;
+    let {user, handleLogout} = this.props;
     return (
       <header className="demo-drawer-header">
         <i className="demo-avatar-icon material-icons">face</i>

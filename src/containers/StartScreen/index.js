@@ -28,7 +28,7 @@ class StartScreen extends Component {
   }
 
   _handleLogin() {
-    var login_profile = this.props.user.login_profile;
+    let login_profile = this.props.user.login_profile;
     if (!login_profile.email || !login_profile.password) {
       this._showSnackBar('Email and Password are required');
       return;
@@ -38,8 +38,8 @@ class StartScreen extends Component {
   }
 
   _showSnackBar(message) {
-    var data = {message: message, timeout: 2500};
-    var snackbarContainer = document.querySelector('#login-snack-bar');
+    let data = {message: message, timeout: 2500};
+    let snackbarContainer = document.querySelector('#login-snack-bar');
     snackbarContainer.MaterialSnackbar.showSnackbar(data);
   }
 

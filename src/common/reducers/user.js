@@ -39,7 +39,7 @@ function logout(state, action) {
 }
 
 function receiveLogin(state, action) {
-  var login_profile = Object.assign({}, state.login_profile);
+  let login_profile = Object.assign({}, state.login_profile);
   login_profile.password = '';
 
   return Object.assign({}, state, {
@@ -57,7 +57,7 @@ function requestLogin(state, action) {
 }
 
 function updateLoginField(state, action) {
-  var login_profile = Object.assign({}, state.login_profile);
+  let login_profile = Object.assign({}, state.login_profile);
   login_profile[action.key] = action.value;
 
   return Object.assign({}, state, {

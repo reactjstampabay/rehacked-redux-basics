@@ -12,7 +12,7 @@ import DevTools from './containers/DevTools';
 const store = configureStore();
 
 if (document.getElementById('app')) {
-  var devTools;
+  let devTools;
   if (process.env.NODE_ENV === 'dev') {
     devTools = <DevTools />
   }

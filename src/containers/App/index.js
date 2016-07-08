@@ -31,8 +31,8 @@ export default class App extends Component {
   }
 
   verifyAuth(nextState, replace) {
-    var store = this.props.store;
-    var profile = store.getState().user.profile || JSON.parse(localStorage['USER_PROFILE'] || '{}');
+    let store = this.props.store;
+    let profile = store.getState().user.profile || JSON.parse(localStorage['USER_PROFILE'] || '{}');
     if (!profile || profile.status !== 'authenticated') {
       replace({
         pathname: '/',
@@ -45,7 +45,7 @@ export default class App extends Component {
     /**
      * Create an enhanced history that syncs navigation events with the store
      */
-    var enhancedHistory = syncHistoryWithStore(hashHistory, this.props.store);
+    let enhancedHistory = syncHistoryWithStore(hashHistory, this.props.store);
 
     return (
       <Router history={enhancedHistory}>

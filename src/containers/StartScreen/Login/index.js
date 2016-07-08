@@ -3,7 +3,7 @@ import Loading from './Loading';
 
 export default class Login extends Component {
   render() {
-    var {loading, email, password, handleFieldChange, handleLogin} = this.props;
+    let {loading, email, password, handleFieldChange, handleLogin} = this.props;
     return (
       <div>
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
