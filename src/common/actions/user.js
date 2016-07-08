@@ -1,4 +1,5 @@
 import * as UserService from '../services/user';
+import {push} from 'react-router-redux';
 
 export const LOGOUT = 'LOGOUT';
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
@@ -23,7 +24,10 @@ export function initiateLogin(email, password) {
   return dispatch => {
     dispatch(requestLogin());
     return UserService.login(email, password)
-      .then(json => dispatch(receiveLogin({data: json})))
+      .then(json => {
+        dispatch(receiveLogin({data: json}));
+        dispatch(push('/dashboard'));
+      })
       .catch(error => dispatch(receiveLogin({error: error})));
   }
 }
