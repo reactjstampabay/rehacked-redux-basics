@@ -5,14 +5,14 @@ import {USER} from '../constants/endpoints';
 export function login(email, password) {
   return new Promise(
     (resolve, reject) => {
-      var url = ENVIRONMENT.API_PATH + USER.LOGIN;
+      let url = ENVIRONMENT.API_PATH + USER.LOGIN;
 
-      var payload = {
+      let payload = {
         email: email,
         password: password
       };
 
-      var options = {
+      let options = {
         method: 'POST',
         body: JSON.stringify(payload)
       };
@@ -39,7 +39,7 @@ function checkStatus(response) {
   } else {
     return response.text()
       .then(responseObj => {
-        var response = JSON.parse(responseObj);
+        let response = JSON.parse(responseObj);
         throw new Error(response.message);
       });
   }

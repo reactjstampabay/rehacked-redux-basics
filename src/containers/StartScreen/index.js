@@ -33,13 +33,13 @@ class StartScreen extends Component {
   }
 
   _handleFieldChange(field, event) {
-    var newState = Object.assign({}, this.state);
+    let newState = Object.assign({}, this.state);
     newState[field] = event.target.value;
     this.setState(newState);
   }
 
   _handleLogin() {
-    var errors = [];
+    let errors = [];
     if (!this.state.email) {
       errors.push('You must specify an email');
     }
@@ -49,7 +49,7 @@ class StartScreen extends Component {
 
     if (errors.length > 0) {
       this._showSnackBar(errors.join('.'));
-      var newState = Object.assign({}, this.state);
+      let newState = Object.assign({}, this.state);
       newState.status = 'login_error';
       this.setState(newState);
     } else {
@@ -59,11 +59,11 @@ class StartScreen extends Component {
   }
 
   _showSnackBar(message) {
-    var data = {
+    let data = {
       message: message,
       timeout: 2500
     };
-    var snackbarContainer = document.querySelector('#login-snack-bar');
+    let snackbarContainer = document.querySelector('#login-snack-bar');
     snackbarContainer.MaterialSnackbar.showSnackbar(data);
   }
 

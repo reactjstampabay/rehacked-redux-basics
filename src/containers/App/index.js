@@ -19,7 +19,7 @@ export default class App extends Component {
 
   handleChange() {
     // Persist the latest copy of the user state to localStorage for later retrieval
-    var user = this.props.store.getState().user;
+    let user = this.props.store.getState().user;
     if (user.status === 'authorized') {
       localStorage['USER_PROFILE'] = JSON.stringify(user);
     } else {
@@ -29,7 +29,7 @@ export default class App extends Component {
 
   componentWillMount() {
     if (localStorage['USER_PROFILE']) {
-      var user = JSON.parse(localStorage['USER_PROFILE']);
+      let user = JSON.parse(localStorage['USER_PROFILE']);
       this.props.store.dispatch(receiveLogin({data: user.profile}));
       hashHistory.push('/dashboard');
     }
@@ -40,8 +40,8 @@ export default class App extends Component {
   }
 
   verifyAuth(nextState, replace) {
-    var store = this.props.store;
-    var profile = store.getState().user.profile || JSON.parse(localStorage['USER_PROFILE'] || '{}');
+    let store = this.props.store;
+    let profile = store.getState().user.profile || JSON.parse(localStorage['USER_PROFILE'] || '{}');
     if (!profile || profile.status !== 'authenticated') {
       replace({
         pathname: '/',
