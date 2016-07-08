@@ -4,6 +4,7 @@ import {push} from 'react-router-redux';
 export const LOGOUT = 'LOGOUT';
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
+export const SAVE_PROFILE = 'SAVE_PROFILE';
 export const UPDATE_LOGIN_FIELD = 'UPDATE_LOGIN_FIELD';
 
 export function requestLogin() {
@@ -24,19 +25,31 @@ export function initiateLogin(email, password) {
   return dispatch => {
     dispatch(requestLogin());
     return UserService.login(email, password)
-      .then(json => {
-        dispatch(receiveLogin({data: json}));
+      .then(profile => {
+        dispatch(receiveLogin({data: profile}));
+        dispatch(saveProfile(profile));
         dispatch(push('/dashboard'));
       })
       .catch(error => dispatch(receiveLogin({error: error})));
   }
 }
 
+/**
+ * logout user - delete profile, redirect to /
+ */
 export function logout() {
-  delete localStorage['USER_PROFILE'];
-  return {
-    type: LOGOUT
-  };
+  return dispatch => {
+    delete localStorage['USER_PROFILE'];
+    dispatch(push('/'));
+    dispatch({type: LOGOUT});
+  }
+}
+
+export function saveProfile(profile) {
+  return dispatch => {
+    localStorage['USER_PROFILE'] = JSON.stringify(profile);
+    dispatch({type: SAVE_PROFILE});
+  }
 }
 
 /**
