@@ -5,8 +5,8 @@ import classNames from 'classnames';
 
 export default class Loading extends Component {
   render() {
-    var {loading} = this.props;
-    var loadingClass = classNames({
+    let {loading} = this.props;
+    let loadingClass = classNames({
       'hide': !loading
     });
     return (
