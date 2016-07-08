@@ -16,7 +16,6 @@ export default class Avatar extends Component {
             <span className="visuallyhidden">Accounts</span>
           </button>
           <ul className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" htmlFor="accbtn">
-            <li className="mdl-menu__item">{user.profile.email}</li>
             <li onClick={handleLogout} className="mdl-menu__item">Logout</li>
           </ul>
         </div>
