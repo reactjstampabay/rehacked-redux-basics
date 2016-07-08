@@ -7,12 +7,18 @@ export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
 export const SAVE_PROFILE = 'SAVE_PROFILE';
 export const UPDATE_LOGIN_FIELD = 'UPDATE_LOGIN_FIELD';
 
-export function requestLogin() {
+/**
+ * invoked when a login is requested
+ */
+function requestLogin() {
   return {
     type: REQUEST_LOGIN
   };
 }
 
+/**
+ * invoked when a login is received - success or error
+ */
 export function receiveLogin(response) {
   return {
     type: RECEIVE_LOGIN,
@@ -21,9 +27,13 @@ export function receiveLogin(response) {
   };
 }
 
+/**
+ * initiates a login request
+ */
 export function initiateLogin(email, password) {
   return dispatch => {
     dispatch(requestLogin());
+
     return UserService.login(email, password)
       .then(profile => {
         dispatch(receiveLogin({data: profile}));
@@ -45,6 +55,9 @@ export function logout() {
   }
 }
 
+/**
+ * save profile to storage - could be expanded to be cross platform (react-native-storage)
+ */
 export function saveProfile(profile) {
   return dispatch => {
     localStorage['USER_PROFILE'] = JSON.stringify(profile);
