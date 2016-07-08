@@ -1,5 +1,3 @@
-'use strict';
-
 import 'isomorphic-fetch';
 import {ENVIRONMENT} from '../constants/environment';
 import {USER} from '../constants/endpoints';
