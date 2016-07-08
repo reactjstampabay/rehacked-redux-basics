@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 
-import {initiateLogin, updateLoginField} from '../../common/actions/user';
+import {initiateLogin, updateLoginField, validateProfile} from '../../common/actions/user';
 import Login from './Login';
 
 class StartScreen extends Component {
@@ -17,6 +17,10 @@ class StartScreen extends Component {
 
   componentDidUpdate() {
     componentHandler.upgradeDom();
+  }
+
+  componentWillMount() {
+    this.props.dispatch(validateProfile());
   }
 
   _handleFieldChange(field, event) {
