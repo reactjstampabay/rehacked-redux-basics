@@ -12,8 +12,8 @@ Welcome to ReHacked!  The Redux Basics lab builds on top of the the original web
 By the end of this lab, you will have:
 
 * Expanded upon the original project's `package.json` with `dev` and `build` scripts
-* Created a `webpack.production.config.js` for use in deployment scenarios
-* Installed [Redux](), [redux-thunk](https://github.com/gaearon/redux-thunk), [redux-logger](https://github.com/gaearon/redux-logger)
+* Have environmentally aware Webpack configurations
+* Installed [Redux](https://github.com/gaearon/redux), [redux-thunk](https://github.com/gaearon/redux-thunk), [redux-logger](https://github.com/gaearon/redux-logger)
 * Created Actions, Reducers, and a Store for use with the application
 * Decomposed the original web app into Containers and Components
 * Connected the original web app's routines to Redux
