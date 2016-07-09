@@ -1,6 +1,6 @@
 ![ReactJS Tampa Bay Logo](https://avatars2.githubusercontent.com/u/18738421?v=3&s=200)
 
-# ReHacked (July 27, 2016): Redux Basics - [Step 4]
+# ReHacked (July 13, 2016): Redux Basics - [Step 4]
 ### By [ReactJS Tampa Bay](http://www.meetup.com/ReactJS-Tampa-Bay/)
 
 # [When We Last Left Off...](https://github.com/reactjstampabay/rehacked-redux-basics/compare/step-2...step-3)
