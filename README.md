@@ -57,10 +57,10 @@
 ### Instructions
 
 1. Create a `/src/components/Avatar.js` file. Copy and paste [`/src/components/Avatar.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/b71a03f8aac842a6804e7b11aecb83b26765b2a3/src/components/Avatar.js)
-1. Create a `/src/components/Header.js` file. Copy and paste [`/src/components/Avatar.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/b71a03f8aac842a6804e7b11aecb83b26765b2a3/src/components/Header.js)
-1. Create a `/src/components/LeftNavigation.js` file. Copy and paste [`/src/components/Avatar.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/b71a03f8aac842a6804e7b11aecb83b26765b2a3/src/components/LeftNavigation.js)
-1. Create a `/src/components/NavigationMenu.js` file. Copy and paste [`/src/components/Avatar.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/b71a03f8aac842a6804e7b11aecb83b26765b2a3/src/components/NavigationMenu.js)
-1. Create a `/src/containers/Dashboard/DashboardContent/index.js` file. Copy and paste [`/src/components/Avatar.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/b71a03f8aac842a6804e7b11aecb83b26765b2a3/src/containers/Dashboard/DashboardContent/index.js)
+1. Create a `/src/components/Header.js` file. Copy and paste [`/src/components/Header.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/b71a03f8aac842a6804e7b11aecb83b26765b2a3/src/components/Header.js)
+1. Create a `/src/components/LeftNavigation.js` file. Copy and paste [`/src/components/LeftNavigation.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/b71a03f8aac842a6804e7b11aecb83b26765b2a3/src/components/LeftNavigation.js)
+1. Create a `/src/components/NavigationMenu.js` file. Copy and paste [`/src/components/NavigationMenu.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/b71a03f8aac842a6804e7b11aecb83b26765b2a3/src/components/NavigationMenu.js)
+1. Create a `/src/containers/Dashboard/DashboardContent/index.js` file. Copy and paste [`/src/components/DashboardContent.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/b71a03f8aac842a6804e7b11aecb83b26765b2a3/src/containers/Dashboard/DashboardContent/index.js)
 1. Edit `/src/containers/Dashboard/index.js`.  
   * Add the following to import statements at the top of the file
   ```javascript
