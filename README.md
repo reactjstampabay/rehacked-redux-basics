@@ -44,6 +44,7 @@
 ### Instructions
 
 1. Edit `webpack.config.js`.  Replace the `plugins` section to look like the following:
+  
   ```javascript
   plugins: [
     new ExtractTextPlugin('app.css'),
@@ -53,7 +54,9 @@
     })
   ],
   ```
-2. Edit `webpack.production.config.js`.  Replace the `plugind` section to look like the following:
+  
+2. Edit `webpack.production.config.js`.  Replace the `plugins` section to look like the following:
+  
   ```javascript
     new ExtractTextPlugin('app.css'),
     new webpack.DefinePlugin({
@@ -73,12 +76,15 @@
 
 1. Create a `/src/common/store/configureStore.prod.js` file.  Cut and paste the contents of your current `/src/common/store/configureStore.js` to this file.
 1. Create a `/src/common/store/configureStore.dev.js` file.  Copy and paste the contents of [`/src/common/store/configureStore.dev.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/f068767891b21854e10d2a56f11aefe4153e17f7/src/common/store/configureStore.dev.js)
-1. Edit `/src/common/store/configureStore.js`.  Copy and paste the contents of []()
+1. Edit `/src/common/store/configureStore.js`.  Copy and paste the contents of [`/src/common/store/configureStore.js](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/f068767891b21854e10d2a56f11aefe4153e17f7/src/common/store/configureStore.js)
+1. Open a terminal in the root of your application and execute `npm3 run dev` to see Redux DevTools
 
 # Summary
 
 In this section, we have accomplished the following:
 
-* 
+* Installed [redux-devtools](https://github.com/gaearon/redux-devtools)
+* Enhanced our two Webpack configs to be environmentally aware so `redux-devtools` only occurs for local development
+* Refactored `configureStore.js` to be environmentally specific
 
 [Back to the Step 4](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-4) || [Continue to Step 6](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-6)
