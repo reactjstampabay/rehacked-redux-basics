@@ -80,8 +80,8 @@ export let configureStore = function(initialState) {
 
 ### Instructions
 
-1. Create a `/src/containers/App/index.js` file.  Copy-pasta the contents of [`src/containers/App/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/94ae7584db4434c36de6620fc620722781ffe6d6/src/containers/App/index.js)
-1. Go to `/src/app.js`.  Replace its contents with [`/src/app.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/94ae7584db4434c36de6620fc620722781ffe6d6/src/app.js)
+1. Create a `/src/containers/App/index.js` file.  Copy-pasta the contents of [`src/containers/App/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/d0a94fb37cc9c4891c706a5dd35b2b5ec312dd00/src/containers/App/index.js)
+1. Go to `/src/app.js`.  Replace its contents with [`/src/app.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/d0a94fb37cc9c4891c706a5dd35b2b5ec312dd00/src/app.js)
 
 
 ## Goal 4: Refactor Dashboard and StartScreen to be **Containers** and Use Redux
@@ -97,8 +97,8 @@ export let configureStore = function(initialState) {
 
 1. Create a `/src/containers` folder
 2. Move the `/src/components/Dashboard` and `/src/components/StartScreen` folders to `/src/containers`
-3. Replace the contents of `/src/containers/Dashboard/index.js` with [`/src/containers/Dashboard/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/5b75f17f98dcb5c1074e18bd43314036b562724f/src/containers/Dashboard/index.js)
-4. Replace the contents of `/src/containers/StartScreen/index.js` with [`/src/containers/StartScreen/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/5b75f17f98dcb5c1074e18bd43314036b562724f/src/containers/StartScreen/index.js)
+3. Replace the contents of `/src/containers/Dashboard/index.js` with [`/src/containers/Dashboard/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/d0a94fb37cc9c4891c706a5dd35b2b5ec312dd00/src/containers/Dashboard/index.js)
+4. Replace the contents of `/src/containers/StartScreen/index.js` with [`/src/containers/StartScreen/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/d0a94fb37cc9c4891c706a5dd35b2b5ec312dd00/src/containers/StartScreen/index.js)
 
 ## Goal 5: Enhance our `package.json` with a `dev` script that runs `webpack-dev-server`
 
