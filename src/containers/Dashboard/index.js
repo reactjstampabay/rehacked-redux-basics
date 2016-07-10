@@ -4,7 +4,7 @@ import {logout} from '../../common/actions/user';
 
 import Header from '../../components/Header';
 import LeftNavigation from '../../components/LeftNavigation';
-import DashboardContent from './DashboardContent';
+import DashboardContent from '../../components/DashboardContent';
 
 class Dashboard extends Component {
   constructor(props) {
