@@ -22,7 +22,8 @@ export function user(state = initial_user_state, action) {
       return Object.assign({}, state, {
         profile: action.profile,
         error: action.error,
-        status: action.error ? 'unauthorized' : 'authorized'
+        status: action.error ? 'unauthorized' : 'authorized',
+        password: ''
       });
       break;
     case LOGOUT:
