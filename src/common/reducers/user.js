@@ -1,7 +1,8 @@
 import {
   REQUEST_LOGIN,
   RECEIVE_LOGIN,
-  LOGOUT
+  LOGOUT,
+  UPDATE_LOGIN_FIELD
 } from '../actions/user';
 
 let initial_user_state = {
@@ -25,11 +26,19 @@ export function user(state = initial_user_state, action) {
       });
       break;
     case LOGOUT:
-      return Object.assign({}, state,  {
+      return Object.assign({}, state, {
         status: 'logged_out',
         profile: null
       });
       break;
+    case UPDATE_LOGIN_FIELD:
+      let user_state = Object.assign({}, state);
+      user_state[action.key] = action.value;
+
+      return Object.assign({}, user_state, {
+        type: UPDATE_LOGIN_FIELD,
+        error: null
+      });
     default:
       return state;
   }
