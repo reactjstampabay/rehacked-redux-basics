@@ -67,7 +67,7 @@ export let configureStore = function(initialState) {
 
 ### Instructions
 
-1. Create a `/src/containers` folder.  Then create an `index.js` file
+1. Create a `/src/containers` folder.
 2. With the definitions above, we can consider that our simple app has two **Containers**: StartScreen and Dashboard
 3. We should also encapsulate our entire application in an App **Container** so that our `/src/app.js` folder has only the single responsibility of scaffolding the application
 
