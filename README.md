@@ -23,6 +23,7 @@
 
 1. Execute `npm3 install redux redux-thunk redux-logger --save`
 1. Ensure your `package.json` has these entries saved to its dependencies
+1. Execute `webpack-dev-server --config webpack.config.js --content-base build/ --inline --hot`
 
 ## Goal 2: Start to think about our Redux application in terms of Actions
 
