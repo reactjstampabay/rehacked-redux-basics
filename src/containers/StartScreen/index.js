@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 
 import {initiateLogin, updateLoginField, validateProfile} from '../../common/actions/user';
-import Login from './Login';
+import Login from '../../components/Login';
 
 class StartScreen extends Component {
   constructor(props) {
