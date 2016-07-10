@@ -6,7 +6,6 @@ export const REQUEST_LOGIN = 'REQUEST_LOGIN';
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
 export const SAVE_PROFILE = 'SAVE_PROFILE';
 export const UPDATE_LOGIN_FIELD = 'UPDATE_LOGIN_FIELD';
-export const VALIDATE_PROFILE = 'VALIDATE_PROFILE';
 
 /**
  * invoked when a login is requested
