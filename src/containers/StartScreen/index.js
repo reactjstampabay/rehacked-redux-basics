@@ -1,20 +1,14 @@
 import React, {Component, PropTypes} from 'react';
 import { connect } from 'react-redux'; 
-import Login from './Login';
-import {requestLogin, initiateLogin} from '../../common/actions/user';
+import Login from '../../components/Login';
+import {initiateLogin, updateLoginField} from '../../common/actions/user';
 import {hashHistory} from 'react-router';
 
 class StartScreen extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        status: 'initial',
-        email: '',
-        password: ''
-      };
-
-      this._handleFieldChange = this._handleFieldChange.bind(this);
-      this._handleLogin = this._handleLogin.bind(this);
+    super(props);
+    this._handleFieldChange = this._handleFieldChange.bind(this);
+    this._handleLogin = this._handleLogin.bind(this);
   }
 
   componentDidMount() {
@@ -33,28 +27,24 @@ class StartScreen extends Component {
   }
 
   _handleFieldChange(field, event) {
-    let newState = Object.assign({}, this.state);
-    newState[field] = event.target.value;
-    this.setState(newState);
+    this.props.dispatch(updateLoginField(field, event.target.value));
   }
 
   _handleLogin() {
     let errors = [];
-    if (!this.state.email) {
+    let user = this.props.user;
+    
+    if (!user.email) {
       errors.push('You must specify an email');
     }
-    if (!this.state.password) {
+    if (!user.password) {
       errors.push('You must specify a password');
     }
 
     if (errors.length > 0) {
       this._showSnackBar(errors.join('.'));
-      let newState = Object.assign({}, this.state);
-      newState.status = 'login_error';
-      this.setState(newState);
     } else {
-      this.props.dispatch(requestLogin());
-      this.props.dispatch(initiateLogin(this.state.email, this.state.password));
+      this.props.dispatch(initiateLogin(user.email, user.password));
     }
   }
 
@@ -68,12 +58,13 @@ class StartScreen extends Component {
   }
 
   render() {
+    let {user} = this.props;
     return (
-      <Login email={this.state.email}
-        password={this.state.password}
-        handleFieldChange={this._handleFieldChange}
-        handleLogin={this._handleLogin}
-        loading={this.props.user.status === 'authenticating'} />
+      <Login email={user.email}
+             password={user.password}
+             handleFieldChange={this._handleFieldChange}
+             handleLogin={this._handleLogin}
+             loading={user.status === 'authenticating'}/>
     );
   }
 }
