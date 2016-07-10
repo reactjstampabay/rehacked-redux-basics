@@ -43,7 +43,6 @@ class StartScreen extends Component {
     if (errors.length > 0) {
       this._showSnackBar(errors.join('.'));
     } else {
-      this.props.dispatch(requestLogin());
       this.props.dispatch(initiateLogin(user.email, user.password));
     }
   }
