@@ -29,7 +29,7 @@ export function user(state = initial_user_state, action) {
     case LOGOUT:
       return Object.assign({}, state, {
         status: 'logged_out',
-        profile: null
+        profile: {}
       });
       break;
     case UPDATE_LOGIN_FIELD:
