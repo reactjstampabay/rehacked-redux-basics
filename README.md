@@ -51,7 +51,7 @@
 1. Copy-pasta time!
 
 ```javascript
-import login from '../services/user';
+import {login} from '../services/user';
 
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
