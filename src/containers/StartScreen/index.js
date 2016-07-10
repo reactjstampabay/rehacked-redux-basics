@@ -28,13 +28,13 @@ class StartScreen extends Component {
   }
 
   _handleLogin() {
-    let login_profile = this.props.user.login_profile;
-    if (!login_profile.email || !login_profile.password) {
+    let user = this.props.user;
+    if (!user.email || !user.password) {
       this._showSnackBar('Email and Password are required');
       return;
     }
 
-    this.props.dispatch(initiateLogin(login_profile.email, login_profile.password));
+    this.props.dispatch(initiateLogin(user.email, user.password));
   }
 
   _showSnackBar(message) {
@@ -44,11 +44,10 @@ class StartScreen extends Component {
   }
 
   render() {
-    const {user} = this.props;
-
+    let {user} = this.props;
     return (
-      <Login email={user.login_profile.email}
-             password={user.login_profile.password}
+      <Login email={user.email}
+             password={user.password}
              handleFieldChange={this._handleFieldChange}
              handleLogin={this._handleLogin}
              loading={user.status === 'authenticating'}/>
