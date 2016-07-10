@@ -1,5 +1,5 @@
 import React from 'react';
-import Loading from './LoginLoading';
+import Loading from '../Loading';
 
 export default ({loading, email, password, handleFieldChange, handleLogin}) => {
   return (
