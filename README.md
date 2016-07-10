@@ -63,7 +63,7 @@ export function requestLogin() {
   };
 }
 
-function receiveLogin(response) {
+export function receiveLogin(response) {
   return {
     type: RECEIVE_LOGIN,
     profile: response.data,
