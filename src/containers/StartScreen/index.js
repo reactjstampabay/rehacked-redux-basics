@@ -6,9 +6,9 @@ import {hashHistory} from 'react-router';
 
 class StartScreen extends Component {
   constructor(props) {
-      super(props);
-      this._handleFieldChange = this._handleFieldChange.bind(this);
-      this._handleLogin = this._handleLogin.bind(this);
+    super(props);
+    this._handleFieldChange = this._handleFieldChange.bind(this);
+    this._handleLogin = this._handleLogin.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +33,7 @@ class StartScreen extends Component {
   _handleLogin() {
     let errors = [];
     let user = this.props.user;
+    
     if (!user.email) {
       errors.push('You must specify an email');
     }
