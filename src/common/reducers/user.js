@@ -4,7 +4,13 @@ import {
   LOGOUT
 } from '../actions/user';
 
-export function user(state = {}, action) {
+let initial_user_state = {
+  status: 'initial',
+  email: '',
+  password: ''
+};
+
+export function user(state = initial_user_state, action) {
   switch (action.type) {
     case REQUEST_LOGIN:
       return Object.assign({}, state, {
