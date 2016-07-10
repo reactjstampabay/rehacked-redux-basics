@@ -1,4 +1,3 @@
-import {LOGIN_STATE} from '../constants/initialStates';
 import {
   LOGOUT,
   REQUEST_LOGIN,
@@ -10,7 +9,9 @@ import {
  * initial reducer state
  */
 const initial_user_state = {
-  login_profile: LOGIN_STATE
+  status: 'initial',
+  email: '',
+  password: ''
 };
 
 /**
@@ -39,14 +40,11 @@ function logout(state, action) {
 }
 
 function receiveLogin(state, action) {
-  let login_profile = Object.assign({}, state.login_profile);
-  login_profile.password = '';
-
   return Object.assign({}, state, {
     profile: action.profile,
     error: action.error,
     status: action.error ? 'unauthorized' : 'authorized',
-    login_profile: login_profile
+    password: ''
   });
 }
 
@@ -57,12 +55,11 @@ function requestLogin(state, action) {
 }
 
 function updateLoginField(state, action) {
-  let login_profile = Object.assign({}, state.login_profile);
-  login_profile[action.key] = action.value;
+  let user_state = Object.assign({}, state);
+  user_state[action.key] = action.value;
 
-  return Object.assign({}, state, {
+  return Object.assign({}, user_state, {
     type: UPDATE_LOGIN_FIELD,
-    error: null,
-    login_profile: login_profile
+    error: null
   });
 }
