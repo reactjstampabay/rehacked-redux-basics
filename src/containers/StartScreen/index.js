@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import { connect } from 'react-redux'; 
 import Login from '../../components/Login';
-import {requestLogin, initiateLogin, updateLoginField} from '../../common/actions/user';
+import {initiateLogin, updateLoginField} from '../../common/actions/user';
 import {hashHistory} from 'react-router';
 
 class StartScreen extends Component {
