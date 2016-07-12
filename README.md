@@ -6,7 +6,7 @@
 # [When We Last Left Off...](https://github.com/reactjstampabay/rehacked-redux-basics/compare/step-4...step-5)
 
 * Installed [redux-devtools](https://github.com/gaearon/redux-devtools) to allow hot reloading, action replay, etc.
-* Enhanced our Webpack configs to be environmentally aware to ensure `redux-devtools` are only available for local development
+* Enhanced our Webpack configs to be environmentally aware
 * Refactored `configureStore.js` to be environmentally specific
 
 # Goals
