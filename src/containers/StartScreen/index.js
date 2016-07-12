@@ -7,6 +7,12 @@ import {hashHistory} from 'react-router';
 class StartScreen extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      status: 'initial',
+      email: '',
+      password: ''
+    };
+
     this._handleFieldChange = this._handleFieldChange.bind(this);
     this._handleLogin = this._handleLogin.bind(this);
   }
@@ -63,7 +69,7 @@ class StartScreen extends Component {
              password={this.state.password}
              handleFieldChange={this._handleFieldChange}
              handleLogin={this._handleLogin}
-             loading={this.props.status === 'authenticating'}/>
+             loading={this.props.user.status === 'authenticating'}/>
     );
   }
 }
