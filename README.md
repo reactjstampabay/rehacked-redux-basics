@@ -30,7 +30,7 @@
 
 1. If you are currently running `webpack-dev-server`, exit the process for now.
 2. Open a terminal in the root of the application. Execute `npm3 install react-router-redux --save`
-3. Edit `/src/containers/App/index.js`.  Import `syncHistoryWithStore` and create an enhanced routing history like the following:
+3. Edit `/src/containers/App/index.js`. Import `syncHistoryWithStore` and create an enhanced routing history like the following:
   ```javascript
     import {syncHistoryWithStore} from 'react-router-redux';
   ```
@@ -64,10 +64,10 @@
  ```javascript
  import configureStore from './common/store/configureStore';
  ```
-2. Establish a `/src/common/middleware/baseline.js` file.  Copy and paste [`/src/common/middleware/baseline.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/middleware/baseline.js)
-3. Edit `/src/common/store/configureStore.dev.js`.  Replace its contents with [`/src/common/store/configureStore.dev.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.dev.js)
-4. Edit `/src/common/store/configureStore.prod.js`.  Replace its contents with [`/src/common/store/configureStore.prod.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.prod.js)
-5. Edit `/src/common/reducers/rootReducer.js`.  Replace the contents to look like the following:
+2. Establish a `/src/common/middleware/baseline.js` file. Copy and paste [`/src/common/middleware/baseline.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/middleware/baseline.js)
+3. Edit `/src/common/store/configureStore.dev.js`. Replace its contents with [`/src/common/store/configureStore.dev.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.dev.js)
+4. Edit `/src/common/store/configureStore.prod.js`. Replace its contents with [`/src/common/store/configureStore.prod.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.prod.js)
+5. Edit `/src/common/reducers/rootReducer.js`. Replace the contents to look like the following:
 
   ```javascript
   import {combineReducers} from 'redux';
@@ -91,7 +91,7 @@
 
 ### Instructions
 
-1. Edit `/src/common/actions/user.js`.  Replace its contents with [`/src/common/actions/user.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/common/actions/user.js)
+1. Edit `/src/common/actions/user.js`. Replace its contents with [`/src/common/actions/user.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/common/actions/user.js)
 2. Edit `/src/common/reducers/user.js`. Replace its contents with [`/src/common/reducers/user.js`](https://github.com/reactjstampabay/rehacked-redux-basics/blob/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/common/reducers/user.js)
 
 ## Goal 4: Move StartScreen state into Redux layer
@@ -101,8 +101,23 @@
 
 ### Instructions
 
-1. Edit `/src/containers/StartScreen/index.js`.  Replace its contents with [`/src/containers/StartScreen/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/StartScreen/index.js)
+1. Edit `/src/containers/StartScreen/index.js`. Replace its contents with [`/src/containers/StartScreen/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/StartScreen/index.js)
 2. Edit `/src/containers/App/index.js`. Replace its contents with [`/src/containers/App/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/App/index.js)
+3. Edit `/src/containers/Dashboard/index.js`. Replace its contents with [`/src/containers/Dashboard/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/Dashboard/index.js)
 
+## Goal 5: Convert stateless components into simple functions
+
+### Explanation
+* We want to demonstrate how stateless components can be composed with simple functions
+
+### Instructions
+
+1. Edit `/src/components/Avatar.js`. Replace its contents with [`/src/components/Avatar.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/components/Avatar.js)
+2. Edit `/src/components/Header.js`. Replace its contents with [`/src/components/Header.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/components/Header.js)
+3. Edit `/src/components/LeftNavigation.js`. Replace its contents with [`/src/components/LeftNavigation.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/components/LeftNavigation.js)
+4. Edit `/src/components/NavigationMenu.js`. Replace its contents with [`/src/components/NavigationMenu.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/components/NavigationMenu.js)
+5. Edit `/src/containers/Dashboard/DashboardContent/index.js`. Replace its contents with [`/src/containers/Dashboard/DashboardContent/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/Dashboard/DashboardContent/index.js)
+6. Edit `/src/containers/StartScreen/Login/index.js`. Replace its contents with [`/src/containers/StartScreen/Login/index.js`](https://github.com/reactjstampabay/rehacked-redux-basics/blob/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/StartScreen/Login/index.js)
+7. Edit `/src/containers/StartScreen/Login/Loading/index.js`. Replace its contents with [`/src/containers/StartScreen/Login/Loading/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/StartScreen/Login/Loading/index.js)
 
 [Back to the Step 5](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-5)
