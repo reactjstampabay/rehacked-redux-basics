@@ -56,11 +56,11 @@
 
 ## Goal 2: Create baseline middleware, so we can apply routing middleware and share common middleware across environment specific stores
 
-  ### Explanation  
+### Explanation
 * We want to apply routing middleware to our Redux store to capture dispatched actions
 * We want a common location to apply middleware that is shared across all store configurations
 
-### Instructions  
+### Instructions
 
 1. Establish a `/src/common/middleware/baseline.js` file.  Copy and paste [`/src/common/middleware/baseline.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/middleware/baseline.js)
 2. Edit `/src/common/store/configureStore.dev.js`.  Replace its contents with [`/src/common/store/configureStore.dev.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.dev.js)
