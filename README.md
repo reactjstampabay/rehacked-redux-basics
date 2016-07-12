@@ -13,11 +13,9 @@
 
 1. Install [react-router-redux](https://github.com/reactjs/react-router-redux) 
 2. Create baseline middleware, so we can apply routing middleware and share common middleware across environment specific stores
-3. Move login and logout related routing to Redux layer
-4. Create action to save a user's profile to local storage
-5. Create action to validate a user's profile
-6. Move StartScreen state into Redux layer
-7. Convert stateless components into simple functions
+3. Add login and logout related routing to Redux layer
+4. Move StartScreen state into Redux layer
+5. Convert stateless components into simple functions
 
 # ReHacked
 
@@ -62,10 +60,14 @@
 
 ### Instructions
 
-1. Establish a `/src/common/middleware/baseline.js` file.  Copy and paste [`/src/common/middleware/baseline.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/middleware/baseline.js)
-2. Edit `/src/common/store/configureStore.dev.js`.  Replace its contents with [`/src/common/store/configureStore.dev.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.dev.js)
-3. Edit `/src/common/store/configureStore.prod.js`.  Replace its contents with [`/src/common/store/configureStore.prod.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.prod.js)
-4. Edit `/src/common/reducers/rootReducer.js`.  Replace the contents to look like the following:
+1. Edit `/src/app.js`. Modify the `import {configureStore}` statement to look like the following:
+ ```javascript
+ import configureStore from './common/store/configureStore';
+ ```
+2. Establish a `/src/common/middleware/baseline.js` file.  Copy and paste [`/src/common/middleware/baseline.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/middleware/baseline.js)
+3. Edit `/src/common/store/configureStore.dev.js`.  Replace its contents with [`/src/common/store/configureStore.dev.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.dev.js)
+4. Edit `/src/common/store/configureStore.prod.js`.  Replace its contents with [`/src/common/store/configureStore.prod.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.prod.js)
+5. Edit `/src/common/reducers/rootReducer.js`.  Replace the contents to look like the following:
 
   ```javascript
   import {combineReducers} from 'redux';
@@ -79,5 +81,16 @@
   
   export default rootReducer;
   ```
+## Goal 3: Add login and logout related routing to Redux layer
+
+### Explanation
+* We want to dispatch actions to handle navigation
+* We want to dispatch actions to save to local storage
+* We want to dispatch actions to validate a user's profile
+
+### Instructions
+
+1. Edit `/src/common/actions/user.js`.  Replace its contents with [`/src/common/actions/user.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/common/actions/user.js)
+2. Edit `/src/common/reducers/user.js`. Replace its contents with [`/src/common/reducers/user.js`](https://github.com/reactjstampabay/rehacked-redux-basics/blob/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/common/reducers/user.js)
 
 [Back to the Step 5](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-5)
