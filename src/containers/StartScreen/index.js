@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import { connect } from 'react-redux'; 
-import Login from '../../components/Login';
+import Login from './Login';
 import {initiateLogin} from '../../common/actions/user';
 import {hashHistory} from 'react-router';
 
