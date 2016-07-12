@@ -102,7 +102,7 @@
 
 ### Instructions
 
-1. Edit `/src/containers/StartScreen/index.js`.  Replace its contents with [`/src/containers/StartScreen/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/StartScreen/index.js
+1. Edit `/src/containers/StartScreen/index.js`.  Replace its contents with [`/src/containers/StartScreen/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/StartScreen/index.js)
 2. Edit `/src/containers/App/index.js`. Replace its contents with [`/src/containers/App/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/App/index.js)
 
 
