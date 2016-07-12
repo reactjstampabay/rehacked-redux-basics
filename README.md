@@ -61,6 +61,7 @@
 ### Instructions
 
 1. Edit `/src/app.js`. Modify the `import {configureStore}` statement to look like the following:
+
  ```javascript
  import configureStore from './common/store/configureStore';
  ```
@@ -81,6 +82,7 @@
   
   export default rootReducer;
   ```
+  
 ## Goal 3: Add login and logout related routing to Redux layer
 
 ### Explanation
