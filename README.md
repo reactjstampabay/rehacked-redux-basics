@@ -12,7 +12,7 @@
 # Goals
 
 1. Install [react-router-redux](https://github.com/reactjs/react-router-redux) 
-2. Create baseline middleware, so we can share common middleware across environment specific stores
+2. Create baseline middleware, so we can apply routing middleware and share common middleware across environment specific stores
 3. Move login and logout related routing to Redux layer
 4. Create action to save a user's profile to local storage
 5. Create action to validate a user's profile
@@ -31,7 +31,7 @@
 
 1. If you are currently running `webpack-dev-server`, exit the process for now.
 2. Open a terminal in the root of the application. Execute `npm3 install react-router-redux --save`
-3. Edit `/src/containers/App/index.js`.  Import `syncHistoryWithStore` and create an enhanced routing history.
+3. Edit `/src/containers/App/index.js`.  Import `syncHistoryWithStore` and create an enhanced routing history like the following:
     * The library simply enhances a history instance to allow it to synchronize any changes it receives into application state. 
     
   ```javascript
@@ -54,5 +54,30 @@
     }
   ```
 
+## Goal 2: Create baseline middleware, so we can apply routing middleware and share common middleware across environment specific stores
+
+  ### Explanation  
+* We want to apply routing middleware to our Redux store to capture dispatched actions
+* We want a common location to apply middleware that is shared across all store configurations
+
+### Instructions  
+
+1. Establish a `/src/common/middleware/baseline.js` file.  Copy and paste [`/src/common/middleware/baseline.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/middleware/baseline.js)
+2. Edit `/src/common/store/configureStore.dev.js`.  Replace its contents with [`/src/common/store/configureStore.dev.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.dev.js)
+3. Edit `/src/common/store/configureStore.prod.js`.  Replace its contents with [`/src/common/store/configureStore.prod.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/step-6/src/common/store/configureStore.prod.js)
+4. Edit `/src/common/reducers/rootReducer.js`.  Replace the contents to look like the following:
+
+  ```javascript
+  import {combineReducers} from 'redux';
+  import {routerReducer} from 'react-router-redux';
+  import {user} from './user';
+  
+  const rootReducer = combineReducers({
+    user,
+    routing: routerReducer
+  });
+  
+  export default rootReducer;
+  ```
 
 [Back to the Step 5](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-5)
