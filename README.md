@@ -31,6 +31,7 @@
 1. If you are currently running `webpack-dev-server`, exit the process for now.
 2. Open a terminal in the root of the application. Execute `npm3 install react-router-redux --save`
 3. Edit `/src/containers/App/index.js`. Import `syncHistoryWithStore` and create an enhanced routing history like the following:
+
   ```javascript
     import {syncHistoryWithStore} from 'react-router-redux';
   ```
@@ -54,6 +55,7 @@
 ## Goal 2: Create baseline middleware, so we can apply routing middleware and share common middleware across environment specific stores
 
 ### Explanation
+
 * We want to apply routing middleware to our Redux store to capture dispatched actions
 * We want a common location to apply middleware that is shared across all store configurations
 
@@ -85,6 +87,7 @@
 ## Goal 3: Add login and logout related routing to Redux layer
 
 ### Explanation
+
 * We want to dispatch actions to handle navigation
 * We want to dispatch actions to save to local storage
 * We want to dispatch actions to validate a user's profile
@@ -97,6 +100,7 @@
 ## Goal 4: Move StartScreen state into Redux layer
 
 ### Explanation
+
 * We want to demonstrate how localized state can be managed via Redux
 
 ### Instructions
@@ -108,6 +112,7 @@
 ## Goal 5: Convert stateless components into simple functions
 
 ### Explanation
+
 * We want to demonstrate how stateless components can be composed with simple functions
 
 ### Instructions
