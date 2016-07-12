@@ -21,4 +21,38 @@
 
 # ReHacked
 
+## Goal 1: Install [react-router-redux](https://github.com/reactjs/react-router-redux) 
 
+### Explanation
+
+* [react-router-redux](https://github.com/reactjs/react-router-redux) is an optional add-on that allows you to easily keep your router in sync with application state
+
+### Instructions
+
+1. If you are currently running `webpack-dev-server`, exit the process for now.
+2. Open a terminal in the root of the application. Execute `npm3 install react-router-redux --save`
+3. Edit `/src/containers/App/index.js`.  Import `syncHistoryWithStore` and create an enhanced routing history.
+    * The library simply enhances a history instance to allow it to synchronize any changes it receives into application state. 
+    
+  ```javascript
+    import {syncHistoryWithStore} from 'react-router-redux';
+  ```
+  
+  ```javascript
+  render() {
+      /**
+       * Create an enhanced history that syncs navigation events with the store
+       */
+      let enhancedHistory = syncHistoryWithStore(hashHistory, this.props.store);
+  
+      return (
+        <Router history={enhancedHistory}>
+          <Route name="root" path="/" component={StartScreen}/>
+          <Route name="dashboard" path="dashboard" component={Dashboard} onEnter={this.verifyAuth}/>
+        </Router>
+      );
+    }
+  ```
+
+
+[Back to the Step 5](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-5)
