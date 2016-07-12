@@ -58,6 +58,7 @@
 2. Edit `webpack.production.config.js`.  Replace the `plugins` section to look like the following:
   
   ```javascript
+  plugins: [
     new ExtractTextPlugin('app.css'),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
