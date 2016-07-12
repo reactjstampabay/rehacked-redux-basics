@@ -95,4 +95,15 @@
 1. Edit `/src/common/actions/user.js`.  Replace its contents with [`/src/common/actions/user.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/common/actions/user.js)
 2. Edit `/src/common/reducers/user.js`. Replace its contents with [`/src/common/reducers/user.js`](https://github.com/reactjstampabay/rehacked-redux-basics/blob/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/common/reducers/user.js)
 
+## Goal 4: Move StartScreen state into Redux layer
+
+### Explanation
+* We want to demonstrate how localized state can be managed via Redux
+
+### Instructions
+
+1. Edit `/src/containers/StartScreen/index.js`.  Replace its contents with [`/src/containers/StartScreen/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/StartScreen/index.js
+2. Edit `/src/containers/App/index.js`. Replace its contents with [`/src/containers/App/index.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/containers/App/index.js)
+
+
 [Back to the Step 5](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-5)
