@@ -11,10 +11,10 @@ export default class App extends Component {
     super(props);
     this.verifyAuth = this.verifyAuth.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
 
-    this.state = {
-      unsubscribe: this.props.store.subscribe(this.handleChange)
-    }
+  componentDidMount() {
+    this.unsubscribe = this.props.store.subscribe(this.handleChange.bind(this));
   }
 
   handleChange() {
@@ -36,7 +36,7 @@ export default class App extends Component {
   }
 
   componentWillUnmount() {
-    this.state.unsubscribe();
+    this.unsubscribe();
   }
 
   verifyAuth(nextState, replace) {

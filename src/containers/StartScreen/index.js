@@ -1,20 +1,20 @@
 import React, {Component, PropTypes} from 'react';
 import { connect } from 'react-redux'; 
 import Login from '../../components/Login';
-import {requestLogin, initiateLogin} from '../../common/actions/user';
+import {initiateLogin} from '../../common/actions/user';
 import {hashHistory} from 'react-router';
 
 class StartScreen extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        status: 'initial',
-        email: '',
-        password: ''
-      };
+    super(props);
+    this.state = {
+      status: 'initial',
+      email: '',
+      password: ''
+    };
 
-      this._handleFieldChange = this._handleFieldChange.bind(this);
-      this._handleLogin = this._handleLogin.bind(this);
+    this._handleFieldChange = this._handleFieldChange.bind(this);
+    this._handleLogin = this._handleLogin.bind(this);
   }
 
   componentDidMount() {
@@ -53,7 +53,6 @@ class StartScreen extends Component {
       newState.status = 'login_error';
       this.setState(newState);
     } else {
-      this.props.dispatch(requestLogin());
       this.props.dispatch(initiateLogin(this.state.email, this.state.password));
     }
   }
@@ -70,10 +69,10 @@ class StartScreen extends Component {
   render() {
     return (
       <Login email={this.state.email}
-        password={this.state.password}
-        handleFieldChange={this._handleFieldChange}
-        handleLogin={this._handleLogin}
-        loading={this.props.user.status === 'authenticating'} />
+             password={this.state.password}
+             handleFieldChange={this._handleFieldChange}
+             handleLogin={this._handleLogin}
+             loading={this.props.user.status === 'authenticating'}/>
     );
   }
 }
