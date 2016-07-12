@@ -19,9 +19,9 @@ export function user(state = {}, action) {
       });
       break;
     case LOGOUT:
-      return Object.assign({}, state,  {
+      return Object.assign({}, state, {
         status: 'logged_out',
-        profile: null
+        profile: {}
       });
       break;
     default:
