@@ -49,6 +49,9 @@ class StartScreen extends Component {
 
     if (errors.length > 0) {
       this._showSnackBar(errors.join('.'));
+      let newState = Object.assign({}, this.state);
+      newState.status = 'login_error';
+      this.setState(newState);
     } else {
       this.props.dispatch(initiateLogin(this.state.email, this.state.password));
     }
