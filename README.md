@@ -44,4 +44,4 @@ Please follow the branches in the order listed below
 1. [Step 3 Solution Set: Connect Root Reducer to React and Create Containers](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-3)
 1. [Step 4 Solution Set: Decompose Components from Dashboard](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-4)
 1. [Step 5 Solution Set: Enhanced Development with Redux DevTools](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-5)
-
+1. [Step 6 Solution Set: Expanding With react-router-redux and Rethinking Components](https://github.com/reactjstampabay/rehacked-redux-basics/tree/step-6)
