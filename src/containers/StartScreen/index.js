@@ -1,20 +1,14 @@
 import React, {Component, PropTypes} from 'react';
-import { connect } from 'react-redux'; 
+import {connect} from 'react-redux';
+
+import {initiateLogin, updateLoginField, validateProfile} from '../../common/actions/user';
 import Login from './Login';
-import {requestLogin, initiateLogin} from '../../common/actions/user';
-import {hashHistory} from 'react-router';
 
 class StartScreen extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        status: 'initial',
-        email: '',
-        password: ''
-      };
-
-      this._handleFieldChange = this._handleFieldChange.bind(this);
-      this._handleLogin = this._handleLogin.bind(this);
+    super(props);
+    this._handleFieldChange = this._handleFieldChange.bind(this);
+    this._handleLogin = this._handleLogin.bind(this);
   }
 
   componentDidMount() {
@@ -25,55 +19,38 @@ class StartScreen extends Component {
     componentHandler.upgradeDom();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user.status === 'authorized') {
-      localStorage['USER_PROFILE'] = JSON.stringify(nextProps.user);
-      hashHistory.push('/dashboard');
-    }
+  componentWillMount() {
+    this.props.dispatch(validateProfile());
   }
 
   _handleFieldChange(field, event) {
-    var newState = Object.assign({}, this.state);
-    newState[field] = event.target.value;
-    this.setState(newState);
+    this.props.dispatch(updateLoginField(field, event.target.value));
   }
 
   _handleLogin() {
-    var errors = [];
-    if (!this.state.email) {
-      errors.push('You must specify an email');
-    }
-    if (!this.state.password) {
-      errors.push('You must specify a password');
+    let user = this.props.user;
+    if (!user.email || !user.password) {
+      this._showSnackBar('Email and Password are required');
+      return;
     }
 
-    if (errors.length > 0) {
-      this._showSnackBar(errors.join('.'));
-      var newState = Object.assign({}, this.state);
-      newState.status = 'login_error';
-      this.setState(newState);
-    } else {
-      this.props.dispatch(requestLogin());
-      this.props.dispatch(initiateLogin(this.state.email, this.state.password));
-    }
+    this.props.dispatch(initiateLogin(user.email, user.password));
   }
 
   _showSnackBar(message) {
-    var data = {
-      message: message,
-      timeout: 2500
-    };
-    var snackbarContainer = document.querySelector('#login-snack-bar');
+    let data = {message: message, timeout: 2500};
+    let snackbarContainer = document.querySelector('#login-snack-bar');
     snackbarContainer.MaterialSnackbar.showSnackbar(data);
   }
 
   render() {
+    let {user} = this.props;
     return (
-      <Login email={this.state.email}
-        password={this.state.password}
-        handleFieldChange={this._handleFieldChange}
-        handleLogin={this._handleLogin}
-        loading={this.props.user.status === 'authenticating'} />
+      <Login email={user.email}
+             password={user.password}
+             handleFieldChange={this._handleFieldChange}
+             handleLogin={this._handleLogin}
+             loading={user.status === 'authenticating'}/>
     );
   }
 }
@@ -83,7 +60,7 @@ StartScreen.propTypes = {
 };
 
 function mapStateToProps(state) {
-  const { user } = state;
+  const {user} = state;
   return {
     user
   };

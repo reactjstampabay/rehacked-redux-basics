@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {hashHistory} from 'react-router';
 import {logout} from '../../common/actions/user';
 
 import Header from '../../components/Header';
@@ -10,21 +9,15 @@ import DashboardContent from './DashboardContent';
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-
     this._logout = this._logout.bind(this);
   }
+
   componentDidMount() {
     componentHandler.upgradeDom();
   }
 
   componentDidUpdate() {
     componentHandler.upgradeDom();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user.status !== 'authorized') {
-      hashHistory.replace('/');
-    }
   }
 
   _logout() {

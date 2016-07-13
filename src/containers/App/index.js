@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, {Component} from 'react';
+import {render} from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
 
-import {receiveLogin} from '../../common/actions/user';
+import {validateProfile} from '../../common/actions/user';
 import StartScreen from '../StartScreen';
 import Dashboard from '../Dashboard';
 
@@ -11,37 +12,27 @@ export default class App extends Component {
     super(props);
     this.verifyAuth = this.verifyAuth.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
-    this.state = {
-      unsubscribe: this.props.store.subscribe(this.handleChange)
-    }
   }
 
-  handleChange() {
-    // Persist the latest copy of the user state to localStorage for later retrieval
-    var user = this.props.store.getState().user;
-    if (user.status === 'authorized') {
-      localStorage['USER_PROFILE'] = JSON.stringify(user);
-    } else {
-      delete localStorage['USER_PROFILE'];
-    }
+  componentDidMount() {
+    this.unsubscribe = this.props.store.subscribe(this.handleChange.bind(this));
   }
 
   componentWillMount() {
-    if (localStorage['USER_PROFILE']) {
-      var user = JSON.parse(localStorage['USER_PROFILE']);
-      this.props.store.dispatch(receiveLogin({data: user.profile}));
-      hashHistory.push('/dashboard');
-    }
+    this.props.store.dispatch(validateProfile());
   }
 
   componentWillUnmount() {
-    this.state.unsubscribe();
+    this.unsubscribe();
+  }
+
+  handleChange() {
+    // behavior on store change would happen here
   }
 
   verifyAuth(nextState, replace) {
-    var store = this.props.store;
-    var profile = store.getState().user.profile || JSON.parse(localStorage['USER_PROFILE'] || '{}');
+    let store = this.props.store;
+    let profile = store.getState().user.profile || JSON.parse(localStorage['USER_PROFILE'] || '{}');
     if (!profile || profile.status !== 'authenticated') {
       replace({
         pathname: '/',
@@ -51,8 +42,13 @@ export default class App extends Component {
   }
 
   render() {
+    /**
+     * Create an enhanced history that syncs navigation events with the store
+     */
+    let enhancedHistory = syncHistoryWithStore(hashHistory, this.props.store);
+
     return (
-      <Router history={hashHistory}>
+      <Router history={enhancedHistory}>
         <Route name="root" path="/" component={StartScreen}/>
         <Route name="dashboard" path="dashboard" component={Dashboard} onEnter={this.verifyAuth}/>
       </Router>
