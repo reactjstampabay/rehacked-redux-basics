@@ -111,7 +111,7 @@
 3. Edit `/src/containers/App/index.js`. Import the `validateProfile` action, and replace the `componentWillMount` and `handleChange` functions like the following:
 
 ```javascript
-import {validateProfile} from '../../common/actions/user';
+import {receiveLogin, validateProfile} from '../../common/actions/user';
 ```
 
 ```javascript
