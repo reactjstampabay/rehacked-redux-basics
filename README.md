@@ -102,7 +102,7 @@
 ### Explanation
 
 * We initially localized the state of the email and password input boxes to the StartScreen Container.  
-* However, what if the values for those input boxes needed to be shared across the system, or we needed to persist the last state of these boxes?  We can let Redux handle the states of these as well.
+* However, what if the values for those input boxes needed to be shared across the system or even multiple platforms (mobile or desktop)? Or we needed to persist the last state of these boxes?  We can let Redux handle the states of these as well.
 
 ### Instructions
 
