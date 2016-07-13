@@ -117,13 +117,13 @@ import {receiveLogin, validateProfile} from '../../common/actions/user';
 ```javascript
 componentWillMount() {
     this.props.store.dispatch(validateProfile());
-  }
+}
 ```
 
 ```javascript
 handleChange() {
     // behavior on store change would happen here
-  }
+}
 ```
 
 ## Goal 5: Convert stateless components into simple functions
