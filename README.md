@@ -24,7 +24,7 @@
 ### Explanation
 
 * [react-router-redux](https://github.com/reactjs/react-router-redux) is an optional add-on that allows you to easily keep your router in sync with application state
-* The library simply enhances a history instance to allow it to synchronize any changes it receives into application state
+* The library simply enhances a history instance to allow it to synchronize any changes it receives into application state. 
 
 ### Instructions
 
@@ -95,13 +95,14 @@
 ### Instructions
 
 1. Edit `/src/common/actions/user.js`. Replace its contents with [`/src/common/actions/user.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/common/actions/user.js)
-2. Edit `/src/common/reducers/user.js`. Replace its contents with [`/src/common/reducers/user.js`](https://raw.githubusercontent.com/reactjstampabay/rehacked-redux-basics/d2ac4b30bf4b25c4722c8f629215fb8aa538f216/src/common/reducers/user.js)
+2. Edit `/src/common/reducers/user.js`. Replace its contents with [`/src/common/reducers/user.js`](https://github.com/reactjstampabay/rehacked-redux-basics/blob/14cbb8f4870dd38f8adaf4c8c6662bc372826ccf/src/common/reducers/user.js)
 
 ## Goal 4: Move StartScreen state into Redux layer
 
 ### Explanation
 
-* We want to demonstrate how localized state can be managed via Redux
+* We initially localized the state of the email and password input boxes to the StartScreen Container.  
+* However, what if the values for those input boxes needed to be shared across the system, or we needed to persist the last state of these boxes?  We can let Redux handle the states of these as well.
 
 ### Instructions
 
@@ -113,7 +114,8 @@
 
 ### Explanation
 
-* We want to demonstrate how stateless components can be composed with simple functions
+* Since our stateless components really make no use of the React lifecycle, we could just convert them to pure functions
+* These pure functions simply return JSX
 
 ### Instructions
 
